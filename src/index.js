@@ -2,28 +2,20 @@ import App from './Components/App';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {  applyMiddleware, createStore } from 'redux';
 import registerServiceWorker from './registerServiceWorker';
-import { promiseMiddleware } from './middleware';
-
-const defaultState = {
-  appName: 'Clone Media',
-  articles: null
-};
-
-const reducer = function(state = defaultState, action) {
-   switch(action.type) {
-      case 'HOME_PAGE_LOADED':
-       return { ...state, articles: action.payload.articles };
-     }
-   return state;
- };
-//  const store = createStore(reducer);
- const store = createStore(reducer, applyMiddleware(promiseMiddleware));
+import store from './store';
+import Home from './Components/Home';
+import Login from './Components/Login';
+// import {Route} from 'react-router';
+import { BrowserRouter as Router, HashRouter, Route, Switch } from 'react-router-dom';
 
 ReactDOM.render((
   <Provider store={store}>
-    <App />
+    <Router history={HashRouter}>
+      <Switch>
+        <Route path="/" component={App} />
+      </Switch>
+    </Router>
   </Provider>
 ), document.getElementById('root'));
 registerServiceWorker();
