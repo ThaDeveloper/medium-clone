@@ -3,7 +3,7 @@ import MainView from './MainView';
 import React, { Component } from 'react';
 import agent from '../../agent';
 import { connect } from 'react-redux';
-
+// eslint-disable-next-line
 const Promise = global.Promise;
 
 const mapStateToProps = state => ({

@@ -27,9 +27,9 @@ class App extends Component {
   }
 }
 
-//  App.contextTypes = {
-//    router: PropTypes.object.isRequired
-//    };
+ App.contextTypes = {
+   router: PropTypes.object.isRequired
+   };
    
 export default connect(mapStateToProps, () => ({}) )(App);
 
